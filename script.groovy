@@ -22,4 +22,5 @@ def buildImage() {
 def deployImage() {
     echo"Deploying the application"
 }
+
 return this
