@@ -4,15 +4,18 @@ def testJar() {
 
 def buildZip() {
     echo"Building the application"
-    sh 'mvn package'
+    //sh 'mvn package'
 }
 
 def buildImage() {
     echo"Building the docker image..."
-    withCredentials([usernamePassword(credentialsId: 'docker-hub-repo', passwordVariable: 'PASS', username: 'USER')]){
-        sh 'docker build -t nanatwn/demo-app:jma-2:0 .'
+    withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'PASS', username: 'USER')]){
+        sh 'docker build -t ericpaatey/web-apps:1.0 .'
         sh 'echo $PASS | docker login -u $USER --password-stdin'
-        sh 'docker push nanatwn/demo-app:jma-2:0'
+        sh 'docker push ericpaatey/web-apps:1.0'
+        //docker push ericpaatey/web-apps:tagname
+
+
     }
 }
 
