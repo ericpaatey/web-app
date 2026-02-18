@@ -1,9 +1,9 @@
 def testJar() {
-     echo"Testing the Application"
+     echo"Testing the Application..."
 }
 
 def buildZip() {
-    echo"Building the application"
+    echo"Building the application..."
     //sh 'mvn package'
 }
 
@@ -13,14 +13,14 @@ def buildImage() {
         sh 'docker build -t ericpaatey/web-apps:1.0 .'
         sh 'echo $PASS | docker login -u $USER --password-stdin'
         sh 'docker push ericpaatey/web-apps:1.0'
-        //docker push ericpaatey/web-apps:tagname
+        echo"Image build completed..."
 
 
     }
 }
 
 def deployImage() {
-    echo"Deploying the application"
+    echo"Deploying the application..."
 }
 
 return this
