@@ -9,7 +9,7 @@ def buildZip() {
 
 def buildImage() {
     echo"Building the docker image..."
-    withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'PASS', username: 'USER')]){
+    withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'PASS', usernameVariable: 'USER')]){
         sh 'docker build -t ericpaatey/web-apps:1.0 .'
         sh 'echo $PASS | docker login -u $USER --password-stdin'
         sh 'docker push ericpaatey/web-apps:1.0'
