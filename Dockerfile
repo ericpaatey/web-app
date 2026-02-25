@@ -5,7 +5,7 @@ FROM nginx:alpine
 RUN rm -rf /usr/share/nginx/html/*
 
 # Copying static website files
-COPY ./web-app /usr/share/nginx/html
+COPY /web-app /usr/share/nginx/html
 
 # Exposing port 80
 EXPOSE 80
